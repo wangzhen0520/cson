@@ -518,7 +518,7 @@ int parseJsonObjectDefault(cson_t jo_tmp, void* output, const reflect_item_t* tb
 {
     int i = 0;
     while (1) {
-        if (tbl[i].reflect_tbl[i].field == NULL) break;
+        if ((tbl + i) || (tbl[i].reflect_tbl + i) || tbl[i].reflect_tbl[i].field == NULL) break;
         
         if(tbl[i].exArgs & _ex_args_exclude_decode){
             i++;
